@@ -8,6 +8,8 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.Card
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
@@ -20,6 +22,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.myfirstjetpackcomposeapp.ui.theme.listOfData
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -49,46 +52,63 @@ fun LoadUi(){
 
     Column (modifier = Modifier.padding(5.dp)){
 
-        Card(modifier = Modifier.padding(10.dp).fillMaxWidth().shadow(5.dp)) {
+        Column(modifier = Modifier
+            .padding(5.dp)
+            .verticalScroll(rememberScrollState())) {
 
-            Image(painter = painterResource(id = R.drawable.ic_eye), contentDescription = "Lion" )
+            listOfData().forEach{ userData->
 
-        }
-        Text(text = "Thinker app logo",
-            modifier = Modifier.padding(5.dp),
-            color = Color.Black,
-            fontSize = 20.sp
-
-        )
-
-
-        Card(modifier = Modifier.padding(10.dp).fillMaxWidth().shadow(5.dp)) {
-
-            Image(painter = painterResource(id = R.drawable.ic_git_branch), contentDescription = "Gmail icon" )
-        }
-        Text(text = "This is git branch icon",
-            modifier = Modifier.padding(5.dp),
-            color = Color.Black,
-            fontSize = 20.sp
-
-        )
-
-        Card(modifier = Modifier.padding(10.dp).fillMaxWidth().shadow(5.dp)) {
-
-            Image(painter = painterResource(id = R.drawable.ic_twitter), contentDescription = "Lion 2" )
+                loadMemoryCard(memoryData = userData)
+            }
 
 
         }
-        Text(text = "This is twitter icon",
-            modifier = Modifier.padding(5.dp),
-            color = Color.Black,
-            fontSize = 20.sp
 
-        )
+
+
+//        Card(modifier = Modifier.padding(10.dp).fillMaxWidth().shadow(5.dp)) {
+//
+//            Image(painter = painterResource(id = R.drawable.ic_eye), contentDescription = "Lion" )
+//
+//        }
+//        Text(text = "Thinker app logo",
+//            modifier = Modifier.padding(5.dp),
+//            color = Color.Black,
+//            fontSize = 20.sp
+//
+//        )
+//
+//
+//        Card(modifier = Modifier.padding(10.dp).fillMaxWidth().shadow(5.dp)) {
+//
+//            Image(painter = painterResource(id = R.drawable.ic_git_branch), contentDescription = "Gmail icon" )
+//        }
+//        Text(text = "This is git branch icon",
+//            modifier = Modifier.padding(5.dp),
+//            color = Color.Black,
+//            fontSize = 20.sp
+//
+//        )
+//
+//        Card(modifier = Modifier.padding(10.dp).fillMaxWidth().shadow(5.dp)) {
+//
+//            Image(painter = painterResource(id = R.drawable.ic_twitter), contentDescription = "Lion 2" )
+//
+//
+//        }
+//        Text(text = "This is twitter icon",
+//            modifier = Modifier.padding(5.dp),
+//            color = Color.Black,
+//            fontSize = 20.sp
+//
+//        )
 
 
     }
 }
+
+
+
 
 
 
